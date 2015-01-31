@@ -163,7 +163,6 @@ public class SimpleMessengerActivity extends Activity {
                     inputStream = new DataInputStream(clientSocket.getInputStream());
 
                     if (inputStream != null && (messages[0] = inputStream.readLine()) != null) {
-                        System.out.println("Server-side: " + messages[0]);
                         publishProgress(messages);
                     }
                 }
@@ -238,7 +237,7 @@ public class SimpleMessengerActivity extends Activity {
                 if (socket != null) {
                     outputStream = new DataOutputStream(socket.getOutputStream());
                     if (outputStream != null)
-                        outputStream.writeBytes(msgToSend + "\n");
+                        outputStream.writeBytes(msgToSend);
                 }
 
             } catch (UnknownHostException e) {
